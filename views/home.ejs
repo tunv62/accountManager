@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('layouts/head')-%>
-    <link href="/css/album.css" rel="stylesheet">
-  </head>
+
+<head>
+  <%- include('layouts/head')-%>
+  <link href="/css/album.css" rel="stylesheet">
+</head>
+
 <body>
-    <%- include('layouts/navbar')-%>
+  <%- include('layouts/navbar')-%>
 
   <!-- Page Header -->
   <header class="masthead" style="background-image: url('img/home-bg.jpg')">
@@ -22,21 +24,22 @@
     </div>
   </header>
 
-    <!-- container -->
-    <section class="jumbotron text-center">
-        <div class="container">
-          <h1>sign in or sign up</h1>
-          <p class="lead text-muted">you need sign in to manager</p>
-          <p>
-            <a href="/signin" class="btn btn-primary my-2">sign in</a>
-            <a href="/signup" class="btn btn-secondary my-2">sign up</a>
-          </p>
-        </div>
+  <section class="jumbotron text-center">
+      <div class="container">
+        <h1>sign in or sign up</h1>
+        <p class="lead text-muted">you need sign in to manager</p>
+        <p>
+          <a href="/signin" class="btn btn-primary my-2">sign in</a>
+          <a href="/signup" class="btn btn-secondary my-2">sign up</a>
+        </p>
+      </div>
     </section>
-    <!-- footer -->
-    <%- include('layouts/footer')-%>
 
-    <!-- scripts -->
-    <%- include('layouts/scripts')-%>
+  <!-- footer -->
+  <%- include('layouts/footer')-%>
+
+  <!-- scripts -->
+  <%- include('layouts/scripts')-%>
 </body>
+
 </html>
