@@ -12,8 +12,8 @@ let validateRegisterAccount = ()=>{
 
 let validateLogin = ()=>{
     return [
-        body('email', 'email is required').notEmpty(),
-        body('email', 'email invalid').isEmail(),
+        // body('email', 'email is required').notEmpty(),
+        // body('email', 'email invalid').isEmail(),
         body('password', 'password is required').notEmpty()
     ]
 }

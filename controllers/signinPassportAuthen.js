@@ -1,7 +1,7 @@
 const passport = require('passport')
 
 module.exports = passport.authenticate('local.login', {
-    successRedirect: '/logged',
+    successRedirect: '/admin',
     failureRedirect: '/signin',
     failureFlash: true
 })

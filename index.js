@@ -64,19 +64,18 @@ app.get('/logged', isAuthen, loggedController)
 
 app.get('/admin', isAuthen, isAdmin, adminController)
 
-// app.get('/admin/loadDataTable', isAuthen, isAdmin, (req, res)=>{
-//     User.find({}, function(err, user){
-//         if (err) return res.status(500).send('there was a problem deleting the user')
-//         let data = processUserArrayToReturn(user)
-//         res.status(200).json({ data: data})
-//         res.end()
-//     })
-// })
+app.get('/admin/loadDataTable', isAuthen, isAdmin, (req, res)=>{
+    User.find({}, function(err, user){
+        if (err) return res.status(500).send('there was a problem deleting the user')
+        let data = processUserArrayToReturn(user)
+        res.status(200).json({ data: data})
+        res.end()
+    })
+})
 
 app.delete('/admin/:id', isAuthen, isAdmin, function (req, res) {
     User.findByIdAndDelete(req.params.id, function (err, user) {
         if (err) return res.status(500).send("There was a problem deleting the user.")
-        console.log(user)
         res.status(200).send('delete success')
         res.end()
     })
@@ -112,7 +111,8 @@ app.get('/admin/search', function(req, res){
     let seeCurrent = parseInt(req.query.seeCurrent)
     let perPage = 2
     User.find({
-        $text: { $search: keySearch}
+        // $text: { $search: "\""+ keySearch +"\""}
+        $text: { $search:  keySearch}
     }).skip(perPage * (seeCurrent - 1)).limit(perPage).exec(function(err, result){
         if (err) return res.status(500).send('there was a problem deleting the user')
         let data = processUserArrayToReturn(result)

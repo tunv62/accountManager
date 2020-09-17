@@ -81,10 +81,23 @@ passport.use('local.login', new localStrategy({
             return done(err)
         }
         if(!user) {
+            console.log(typeof email)
             return done(null, false, {
                 message: 'account not found'
             })
+        }else if(user.local.password === password){
+            
+            return done(null, user)
+        }else{
+            console.log(user)
+            console.log(password)
+            return done(null, false, {
+                message: 'password wrong'
+            })
         }
-        return done(null, user)
+        // User.find({
+        //     'local.password': password
+        // }, function(err, user))
+        
     })
 }))
